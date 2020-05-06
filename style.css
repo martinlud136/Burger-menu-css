@@ -1,0 +1,45 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+    /* border: 1px solid black; */
+
+}
+
+/* checkbox que se va */
+#btn-menu {
+    display: none;
+}
+/* imaneg menu hamburguesa que se va */
+header label {
+    display: none;
+}
+/* hacemos flex la lista desordenada */
+.menu ul {
+    display: flex;      
+}
+
+@media (max-width: 768px) {
+/* vuelve la imagen del menu hamburguesa */
+    header label {
+        display: block;
+    }   
+/* header se hace relativo para el proximo atributo de su contenido menu */
+    header {
+        position: relative;
+    }
+    .menu {
+        position: absolute;
+/* aqui no me tengo que olividar del color de fondo  */
+        width: 70%;
+        margin-left: -70%;
+    }
+
+    .menu ul {
+        flex-direction: column;
+    }
+    #btn-menu:checked ~ .menu {
+        margin: 0px;
+        
+    }
+}

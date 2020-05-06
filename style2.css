@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+header {
+    width: 100%;
+    background-color: #4394ab;
+}
+
+#btn-menu {
+    display: none;
+}
+
+header label {
+    display: none;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    border-right: 1px solid #fff;
+}
+
+header label:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.3)
+}
+
+.menu ul {
+    margin: 0px;
+    list-style: none;
+    padding: 0px;
+    display: flex;
+    /* justify-content: flex-end; center ( para alinear si queremos al final o al centro) */
+}
+
+.menu li {
+    /* con lo de abajo le damos la proporcion de crecimiento a los li */
+    flex-grow: 1;
+    text-align: center;
+    border-right: 1px solid #fff;
+}
+
+.menu li:hover {
+    background-color: rgba(0, 0, 0, 0.3)
+}
+
+.menu li a {
+   /* se coloca block para poder dale padding porque a es un elemento inline */
+    display: inline-block; 
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+}
+
+@media (max-width:768px) {
+    header label {
+        display: block;
+    }
+    .menu  {
+        /* se le da position absolute para que salga del flujo del header */
+        position: absolute;
+        background-color: #4394ab;
+        width: 70%;
+        /* cuando se achica la pantalla con el margen que sigue se va el menu */
+        margin-left: -70%;
+        transition: all 0.5s;
+
+    }
+    .menu ul {
+/* si no fuera position absolute la columna formaria parte del ancho del header */
+        flex-direction: column;        
+    }
+
+    .menu li {
+        border-top: 3px solid #fff;
+        text-align: left;
+    }
+/* cuando el btn-menu tenga el :checked va a ~ (seguir hasta encontrar) la clase menu */
+    #btn-menu:checked ~ .menu {
+        /* entonces el menu se comporta de la siguiente manera */
+        margin: 0;
+    }
+
+}
